@@ -24,6 +24,7 @@ class CreateCartsTable extends Migration
             $table->string('customer_phone')->nullable();
             $table->string('session_id');
             $table->integer('shipping_rate');
+            $table->boolean('status')->nullable();
             $table->decimal('grand_total_usd',12,4)->nullable();
             $table->decimal('grand_total_euro',12,4)->nullable();
             $table->timestamps();

@@ -20,7 +20,7 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
-    public function getCategoryByName($name = '')
+    public function getProductsByCategoryName($name = '')
     {	$products = Product::with(['categories'=>function($q) use($name){
     		$q->where('name',$name);
     	}])->where('status', 1)->get();
