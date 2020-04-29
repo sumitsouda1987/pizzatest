@@ -5,7 +5,6 @@ namespace Modules\Admin\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Admin\Entities\Categories;
 use Modules\Api\Entities\OrderItem;
-use Modules\Api\Entities\Order;
 
 class product extends Model
 {
