@@ -4,6 +4,7 @@ namespace Modules\Api\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Api\Entities\OrderItem;
+use Modules\Api\Entities\User;
 
 class Order extends Model
 {
@@ -14,6 +15,14 @@ class Order extends Model
      */
     public function order_items()
     {
-    	return $this->hasMany(OrderItem::class);
+    	return $this->hasMany(OrderItem::class,'order_id');
+    }
+
+    /**
+     * The cartitems that belong to the cart.
+     */
+    public function user()
+    {
+    	return $this->belongsTo(User::class,'user_id');
     }
 }

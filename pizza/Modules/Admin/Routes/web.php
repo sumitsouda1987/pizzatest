@@ -29,4 +29,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function() {
    	Route::get('/product/edit/{product}', 'ProductController@edit')->name('admin.product.edit');
    	Route::patch('/product/{product}', 'ProductController@update')->name('admin.product.update');
    	Route::delete('/product/{product}','ProductController@destroy')->name('admin.product.delete');
+
+   	//Order Controller
+   	Route::get('/dashboard','OrderController@index')->name('admin.order');
 });

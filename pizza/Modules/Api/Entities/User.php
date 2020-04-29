@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
     	return $this->hasMany(CustomerAddress::class);
     }
+
+    /**
+     * The user that belong to the customer address.
+     */
+    public function orders()
+    {
+    	return $this->hasMany(Order::class);
+    }
 }
