@@ -1,68 +1,120 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An online Pizza ordering application
 
-## Available Scripts
+Frontend - React JS
+Backend - Laravel
 
-In the project directory, you can run:
 
-### `npm start`
+Getting Started
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow the below intructions to run this application on local environment
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1 Git Clone the repository
 
-### `npm run build`
+```sh
+git clone https://github.com/sumitsouda1987/pizzatest.git
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2 Front End (React App)
 
-### `npm run eject`
+2.1 web folder contains the react code
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+cd web
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.2 Installed the required packages for this app on local environment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+npm Install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2.3 Start local server
 
-## Learn More
+This will open the browser with "http://localhost:3000";
+```sh
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3 Back-end (Admin Panel + Api )
 
-### Code Splitting
+3.1 Go back and enter into the "pizza" directory
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```sh
+cd pizza
+```
 
-### Analyzing the Bundle Size
+3.2 Install laravel installer
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```sh
+composer global require "laravel/installer"
+```
 
-### Making a Progressive Web App
+3.3 Create database for the application e.g pizzastore
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+3.4 Open .env file and change the db settings 
 
-### Advanced Configuration
+```sh
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=pizzastore
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+3.5 Run following command to install neccessary packages
 
-### Deployment
+```sh
+composer install
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+3.6 Create db tables from migrations
 
-### `npm run build` fails to minify
+```sh
+php artisan migrate
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+3.7 Make sure you have linked your storage directory
+
+```sh
+php artisan storage:link
+```
+
+3.8 Generate Keys
+
+```sh
+php artisan key:generate
+```
+
+3.9 cache the configs
+
+```sh
+php artisan config:cache
+```
+
+3.10 Run the application
+
+```sh
+php artisan serve
+```
+
+3.11 Passport key generation
+
+```sh
+php artisan passport:install
+```
+
+Note - After all these instruction, if found something like file found in storage directory
+Run following commands
+
+```sh
+php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
+php artisan serve
+```
